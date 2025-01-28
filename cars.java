@@ -44,10 +44,10 @@ public class cars implements movable{
     @Override
     public void move() {
         switch (direction) {
-            case 'North': y += currentSpeed;
-            case 'East': x+=currentSpeed;
-            case 'South': y -= currentSpeed;
-            case
+            case "North": y += currentSpeed;
+            case "East": x+=currentSpeed;
+            case "South": y -= currentSpeed;
+            case "West": x-=currentSpeed;
         }
 
     }
