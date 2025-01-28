@@ -8,6 +8,10 @@ public class cars implements movable{
     protected Color color; // Color of the car
     protected String modelName; // The car model name
 
+    private double x;
+    private double y;
+    private String direction;
+
 
     public int getNrDoors(){
         return nrDoors;
@@ -39,6 +43,12 @@ public class cars implements movable{
 
     @Override
     public void move() {
+        switch (direction) {
+            case 'North': y += currentSpeed;
+            case 'East': x+=currentSpeed;
+            case 'South': y -= currentSpeed;
+            case
+        }
 
     }
 
