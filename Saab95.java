@@ -32,7 +32,7 @@ public class Saab95 extends cars{
     }
 
     private void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
     private void decrementSpeed(double amount){
@@ -41,11 +41,13 @@ public class Saab95 extends cars{
     
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        incrementSpeed(amount);
+        while (amount > 0 && amount < 1) {
+            incrementSpeed(amount);}
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        decrementSpeed(amount);
+        while (amount > 0 && amount < 1) {
+            decrementSpeed(amount);}
     }
 }
