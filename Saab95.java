@@ -12,6 +12,7 @@ public class Saab95 extends cars{
         enginePower = 125;
 	    turboOn = false;
         modelName = "Saab95";
+        direction = "North";
         stopEngine();
     }
 

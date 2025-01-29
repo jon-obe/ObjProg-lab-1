@@ -8,9 +8,9 @@ public class cars implements movable{
     protected Color color; // Color of the car
     protected String modelName; // The car model name
 
-    private double x;
-    private double y;
-    private String direction;
+    protected double x;
+    protected double y;
+    protected String direction;
 
 
     public int getNrDoors(){
@@ -41,24 +41,62 @@ public class cars implements movable{
         currentSpeed = 0;
     }
 
-    @Override
+    public void setDirection(String dir) {direction = dir;}
+
+    public String getDirection() {return direction;}
+
+
     public void move() {
         switch (direction) {
             case "North": y += currentSpeed;
+<<<<<<< HEAD
+            break;
+            case "East": x+=currentSpeed;
+            break;
+            case "South": y -= currentSpeed;
+            break;
+            case "West": x-=currentSpeed;
+            break;
+=======
             case "East": x+=currentSpeed;
             case "South": y -= currentSpeed;
             case "West": x-=currentSpeed;
+>>>>>>> edf1f14604fc70130749807cc698cf3edbbf6f4b
         }
 
     }
 
-    @Override
     public void turnLeft() {
+        System.out.println(direction);
+        switch (direction) {
+            case "North":
+                setDirection("West");
+                break;
+            case "East":
+                setDirection("North");
+                break;
+            case "South":
+                setDirection("East");
+                break;
+            case "West":
+                setDirection("South");
+                break;
+        }
+        System.out.println(direction);
 
     }
 
-    @Override
     public void turnRight() {
+            switch (direction) {
+                case "North": setDirection("East");
+                break;
+                case "East": setDirection("South");
+                break;
+                case "South": setDirection("West");
+                break;
+                case "West": setDirection("North");
+                break;
+        }
 
     }
 }
