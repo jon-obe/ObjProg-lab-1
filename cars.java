@@ -8,9 +8,9 @@ public class cars implements movable{
     protected Color color; // Color of the car
     protected String modelName; // The car model name
 
-    private double x;
-    private double y;
-    private String direction;
+    protected double x;
+    protected double y;
+    protected String direction;
 
 
     public int getNrDoors(){
@@ -41,7 +41,11 @@ public class cars implements movable{
         currentSpeed = 0;
     }
 
-    @Override
+    public void setDirection(String dir) {direction = dir;}
+
+    public String getDirection() {return direction;}
+
+
     public void move() {
         switch (direction) {
             case "North": y += currentSpeed;
@@ -52,13 +56,27 @@ public class cars implements movable{
 
     }
 
-    @Override
     public void turnLeft() {
+        switch (direction) {
+            case "North":
+                setDirection("West");
+            case "East":
+                setDirection("North");
+            case "South":
+                setDirection("East");
+            case "West":
+                setDirection("South");
+        }
 
     }
 
-    @Override
     public void turnRight() {
+            switch (direction) {
+                case "North": setDirection("East");
+                case "East": setDirection("South");
+                case "South": setDirection("West");
+                case "West": setDirection("North");
+        }
 
     }
 }
