@@ -11,13 +11,20 @@ public class carstest {
         v.startEngine();
         assertEquals(0.1, v.getCurrentSpeed());
     }
+
     @Test
     public void testRight() {
         Saab95 s = new Saab95();
         s.startEngine();
         s.turnRight();
         assertEquals("East", s.getDirection());
+    }
 
-
+    @Test
+    public void testGas() {
+        Volvo240 v = new Volvo240();
+        v.startEngine();
+        v.gas(2);
+        assertNotEquals(2.1 ,v.getCurrentSpeed());
     }
 }

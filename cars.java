@@ -42,7 +42,7 @@ public class cars implements movable{
         currentSpeed = 0;
     }
 
-    public void setDirection(String dir) {direction = dir;}
+    protected void setDirection(String dir) {direction = dir;}
 
     public String getDirection() {return direction;}
 
