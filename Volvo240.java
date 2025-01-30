@@ -13,28 +13,8 @@ public class Volvo240 extends cars{
         stopEngine();
     }
 
-    private double speedFactor(){
+    @Override
+    protected double speedFactor() {
         return enginePower * 0.01 * trimFactor;
-    }
-
-    private void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
-    }
-
-    private void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
-    }
-
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        while (amount > 0 && amount < 1) {
-            incrementSpeed(amount);}
-        }
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        while (amount > 0 && amount < 1){
-            decrementSpeed(amount);}
     }
 }
