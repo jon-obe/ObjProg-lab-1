@@ -1,4 +1,5 @@
 import org.junit.Test;
+import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
