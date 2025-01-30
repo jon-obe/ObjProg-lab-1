@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Cars implements movable{
+public abstract class Cars implements movable {
 
     protected int nrDoors; // Number of doors on the car, only subclasses can access, but you need to use getter and setter
     protected double enginePower; // Engine power of the car
@@ -21,50 +21,58 @@ public abstract class Cars implements movable{
         this.color = color;
     }
 
-    public int getNrDoors(){
+    public int getNrDoors() {
         return nrDoors;
     }
 
-    public double getEnginePower(){
+    public double getEnginePower() {
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    public double getCurrentSpeed() {
         return currentSpeed;
     }
 
-    public Color getColor(){
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(Color clr){
+    public void setColor(Color clr) {
         color = clr;
     }
 
-    public void startEngine(){
+    public void startEngine() {
         currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    public void stopEngine() {
         currentSpeed = 0;
     }
 
-    private void setDirection(String dir) {direction = dir;}
+    private void setDirection(String dir) {
+        direction = dir;
+    }
 
-    public String getDirection() {return direction;}
+    public String getDirection() {
+        return direction;
+    }
 
     abstract protected double speedFactor();
 
     public void move() {
         switch (direction) {
-            case "North": y += currentSpeed;
-            break;
-            case "East": x+=currentSpeed;
-            break;
-            case "South": y -= currentSpeed;
-            break;
-            case "West": x-=currentSpeed;
-            break;
+            case "North":
+                y += currentSpeed;
+                break;
+            case "East":
+                x += currentSpeed;
+                break;
+            case "South":
+                y -= currentSpeed;
+                break;
+            case "West":
+                x -= currentSpeed;
+                break;
         }
 
     }
@@ -90,27 +98,31 @@ public abstract class Cars implements movable{
     }
 
     public void turnRight() {
-            switch (direction) {
-                case "North": setDirection("East");
+        switch (direction) {
+            case "North":
+                setDirection("East");
                 break;
-                case "East": setDirection("South");
+            case "East":
+                setDirection("South");
                 break;
-                case "South": setDirection("West");
+            case "South":
+                setDirection("West");
                 break;
-                case "West": setDirection("North");
+            case "West":
+                setDirection("North");
                 break;
         }
     }
 
-    private void incrementSpeed(double amount){
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    private void incrementSpeed(double amount) {
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
 
-    private void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+    private void decrementSpeed(double amount) {
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
-    public void gas(double amount){
+    public void gas(double amount) {
         if (amount >= 0 && amount <= 1) {
             incrementSpeed(amount);
         } else {
@@ -118,9 +130,12 @@ public abstract class Cars implements movable{
         }
     }
 
-    public void brake(double amount){
-        if (amount >= 0 && amount <= 1){
-            decrementSpeed(amount);}
+    public void brake(double amount) {
+        if (amount >= 0 && amount <= 1) {
+            decrementSpeed(amount);
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }
 
