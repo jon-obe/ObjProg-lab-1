@@ -1,11 +1,11 @@
 import java.awt.*;
 
-public class cars implements movable{
+public abstract class Cars implements movable{
 
     protected int nrDoors; // Number of doors on the car, only subclasses can access, but you need to use getter and setter
     protected double enginePower; // Engine power of the car
-    protected double currentSpeed; // The current speed of the car
-    protected Color color; // Color of the car
+    private double currentSpeed; // The current speed of the car
+    private Color color; // Color of the car
     protected String modelName; // The car model name
     protected double speedFactor;
 
@@ -13,6 +13,13 @@ public class cars implements movable{
     protected double y;
     protected String direction;
 
+    public Cars(String modelName, int nrDoors, int enginePower, String direction, Color color) {
+        this.modelName = modelName;
+        this.nrDoors = nrDoors;
+        this.enginePower = enginePower;
+        this.direction = direction;
+        this.color = color;
+    }
 
     public int getNrDoors(){
         return nrDoors;
@@ -42,11 +49,11 @@ public class cars implements movable{
         currentSpeed = 0;
     }
 
-    protected void setDirection(String dir) {direction = dir;}
+    private void setDirection(String dir) {direction = dir;}
 
     public String getDirection() {return direction;}
 
-    protected double speedFactor(){ return enginePower * 0.01; }
+    abstract protected double speedFactor();
 
     public void move() {
         switch (direction) {
@@ -104,12 +111,15 @@ public class cars implements movable{
     }
 
     public void gas(double amount){
-        if (amount > 0 && amount < 1) {
-            incrementSpeed(amount);}
+        if (amount >= 0 && amount <= 1) {
+            incrementSpeed(amount);
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void brake(double amount){
-        if (amount > 0 && amount < 1){
+        if (amount >= 0 && amount <= 1){
             decrementSpeed(amount);}
     }
 }
