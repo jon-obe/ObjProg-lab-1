@@ -1,9 +1,8 @@
 import org.junit.Test;
-import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class carstest {
+public class Carstest {
 
     @Test
     public void testMove() {
