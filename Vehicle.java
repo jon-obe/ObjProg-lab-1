@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Cars implements movable {
+public abstract class Vehicle implements movable {
 
     protected int nrDoors; // Number of doors on the car, only subclasses can access, but you need to use getter and setter
     protected double enginePower; // Engine power of the car
@@ -13,7 +13,7 @@ public abstract class Cars implements movable {
     protected double y;
     protected String direction;
 
-    public Cars(String modelName, int nrDoors, int enginePower, String direction, Color color) {
+    public Vehicle(String modelName, int nrDoors, int enginePower, String direction, Color color) {
         this.modelName = modelName;
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
