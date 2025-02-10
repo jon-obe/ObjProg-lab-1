@@ -78,7 +78,6 @@ public abstract class Vehicle implements movable {
     }
 
     public void turnLeft() {
-        System.out.println(direction);
         switch (direction) {
             case "North":
                 setDirection("West");
@@ -93,8 +92,6 @@ public abstract class Vehicle implements movable {
                 setDirection("South");
                 break;
         }
-        System.out.println(direction);
-
     }
 
     public void turnRight() {
