@@ -59,6 +59,16 @@ public abstract class Vehicle implements movable {
 
     abstract protected double speedFactor();
 
+    public double getX() { return x; }
+
+    public double getY() { return y; }
+
+    public void setPosition(double xChange, double yChange) {
+        x += xChange;
+        y += yChange;
+    }
+
+
     public void move() {
         switch (direction) {
             case "North":
@@ -135,4 +145,3 @@ public abstract class Vehicle implements movable {
         }
     }
 }
-
