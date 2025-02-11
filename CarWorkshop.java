@@ -14,7 +14,7 @@ public class CarWorkshop <T extends Vehicle>{
         if (nrCars < this.capacity) {
             nrCars +=1;}
         else {
-            throw new IllegalArgumentException("The workshop is full");
+            throw new IllegalArgumentException("The workshop is full!");
         }
     }
 }
