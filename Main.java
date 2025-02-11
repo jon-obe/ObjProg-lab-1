@@ -9,6 +9,7 @@ public class Main{
         saabWorkshop.turnInCar(saab);
         saabWorkshop.turnInCar(saab2);
 
+        System.out.println(saabWorkshop.removeCar(0));
         System.out.println(saabWorkshop.getNrCars());
 
     }

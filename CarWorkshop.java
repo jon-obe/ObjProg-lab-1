@@ -18,5 +18,17 @@ public class CarWorkshop <T extends Vehicle>{
             throw new IllegalStateException("The workshop is full!");
         }
     }
+
+    public T removeCar (int index) {
+        T removedCar = null;
+        if (index >= 0 && index < vehicles.size()) {
+            removedCar = vehicles.get(index);
+            vehicles.remove(index);
+            nrCars -= 1;
+            return removedCar;
+        } else {
+            throw new IllegalArgumentException("Wrong index!");
+        }
+    }
     public int getNrCars() {return nrCars;}
 }
