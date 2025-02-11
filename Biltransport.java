@@ -3,7 +3,7 @@ import java.awt.*;
 public class Biltransport extends ScaniaLastbil {
 
 
-    @Override
+    //@Override
     protected void RaiseTruckBed(){
         if (getCurrentSpeed() > 0) {
             System.out.println("Truck must be stationary to raise or lower the truckbed");
