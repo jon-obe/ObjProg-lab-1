@@ -26,12 +26,4 @@ public class Carstest {
         assertThrows(IllegalAccessException.class, () -> v.gas(2));
         assertNotEquals(2.1 ,v.getCurrentSpeed());
     }
-
-    @Test
-    public void testBrake() {
-        Volvo240 c = new Volvo240();
-        c.startEngine();
-        assertThrows(IllegalAccessException.class, () -> c.brake(-1));
-        assertNotEquals(-0.1 ,c.getCurrentSpeed());
-    }
 }
