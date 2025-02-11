@@ -1,9 +1,18 @@
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Biltransport extends ScaniaLastbil {
+public class Biltransport extends Vehicle{
 
+    private Flatbed flatbed;
+    private int capacity;
+    private int nrCars = 0;
 
-    //@Override
+    public Biltransport(int capacity) {
+        this.capacity = capacity;
+    }
+
+    // @Override
     protected void RaiseTruckBed(){
         if (getCurrentSpeed() > 0) {
             System.out.println("Truck must be stationary to raise or lower the truckbed");
@@ -11,5 +20,10 @@ public class Biltransport extends ScaniaLastbil {
             TruckBedAngle = 70;
         } else {;}
 
+    }
+
+    @Override
+    protected double speedFactor() {
+        return 0;
     }
 }
