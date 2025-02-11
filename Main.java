@@ -5,12 +5,11 @@ public class Main{
 
         Saab95 saab = new Saab95();
         Saab95 saab2 = new Saab95();
-        Volvo240 volvo = new Volvo240();
 
         saabWorkshop.turnInCar(saab);
         saabWorkshop.turnInCar(saab2);
 
-        System.out.println(saabWorkshop.nrCars);
+        System.out.println(saabWorkshop.getNrCars());
 
     }
 }
