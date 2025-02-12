@@ -24,7 +24,7 @@ public class ScaniaLastbil extends Vehicle {
     protected void lowerTruckBed(int degrees) {
         //ska det vara en this. före currentspeed eller ska den skrivas om med en getter?
         //känns som det inte ska returnas strings här utan borde ge något annat, eller vara ett annat typ av fall.
-        if (getCurrentSpeed() > 0){
+        if (this.getCurrentSpeed() > 0){
             throw new IllegalStateException("Truck must be stationary to raise or lower the truckbed");
         } else if (degrees < 0 || degrees > 70){
             throw new IllegalArgumentException("Invalid integer. Must be within the limits 0-70");

@@ -63,6 +63,11 @@ public abstract class Vehicle implements movable {
 
     public double getY() { return y; }
 
+    public void setPosition(double xChange, double yChange) {
+        x += xChange;
+        y += yChange;
+    }
+
 
     public void move() {
         switch (direction) {
