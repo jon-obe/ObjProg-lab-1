@@ -18,7 +18,7 @@ public class CarWorkshop <T extends Vehicle>{
             throw new IllegalStateException("The workshop is full!");
         }
     }
-
+// funktionen tar en index, tar bort bilen och returnerar vilken typ av bil det var
     public T removeCar (int index) {
         T removedCar = null;
         if (index >= 0 && index < vehicles.size()) {

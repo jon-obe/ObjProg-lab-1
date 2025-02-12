@@ -1,7 +1,7 @@
 public class Flatbed {
 
-    private int min;
-    private int max;
+    protected int min;
+    protected int max;
     private int flatBedAngle = 0;
 
     public Flatbed(int min, int max) {
