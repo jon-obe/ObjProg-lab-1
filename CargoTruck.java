@@ -1,10 +1,10 @@
-public class Lastbil {
+public class CargoTruck {
 
     private int min;
     private int max;
     private int TruckBedAngle = 0;
 
-    public Lastbil(int min, int max) {
+    public CargoTruck(int min, int max) {
         this.min = min;
         this.max = max;
     }
