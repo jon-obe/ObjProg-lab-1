@@ -31,7 +31,7 @@ public class Carstest {
     public void testRTBcorrect() {
         ScaniaTruck s = new ScaniaTruck();
         s.raiseTruckBed(60);
-        assertEquals(60, s.TruckBedAngle);
+        assertEquals(60, s.CargoTruck.getAngle());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class Carstest {
         ScaniaTruck s = new ScaniaTruck();
         s.raiseTruckBed((60));
         s.raiseTruckBed(20);
-        assertEquals(70, s.TruckBedAngle);
+        assertEquals(70, s.CargoTruck.getAngle());
     }
 
     @Test
@@ -101,5 +101,23 @@ public class Carstest {
         b.move();
         b.move();
         assertEquals(0.7, v.getX());
+    }
+
+    @Test
+    public void testUnLoad() {
+        CarTransport b = new CarTransport(6);
+        Volvo240 v = new Volvo240();
+        Saab95 s = new Saab95();
+        b.loadCar(v);
+        b.loadCar(s);
+        b.raiseTruckBed();
+        b.startEngine();
+        b.move();
+        b.move();
+        b.stopEngine();
+        b.lowerTruckBed();
+        b.unLoadCar();
+        assertEquals(5.2, s.getY());
+        assertEquals(v, b.cargo.get(0));
     }
 }

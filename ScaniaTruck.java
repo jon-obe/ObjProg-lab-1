@@ -2,10 +2,11 @@ import java.awt.*;
 
 public class ScaniaTruck extends Vehicle {
 
-    public int TruckBedAngle = 0;
+    protected CargoTruck CargoTruck;
 
     public ScaniaTruck(){
         super("Scania", 2, 175, "North", Color.blue);
+        CargoTruck = new CargoTruck(0, 70);
         stopEngine();
     }
 
@@ -14,10 +15,10 @@ public class ScaniaTruck extends Vehicle {
             throw new IllegalStateException("Truck must be stationary to raise or lower the truckbed");
         } if (degrees < 0 || degrees > 70){
             throw new IllegalArgumentException("Invalid integer. Must be within the limits 0-70");
-        } else if (TruckBedAngle + degrees >= 70) {
-            TruckBedAngle = 70;
+        } else if (CargoTruck.getAngle() + degrees >= 70) {
+            CargoTruck.setAngle(70);
         } else {
-            TruckBedAngle += degrees;
+            CargoTruck.setAngle(degrees);
         }
     }
 
@@ -26,11 +27,31 @@ public class ScaniaTruck extends Vehicle {
             throw new IllegalStateException("Truck must be stationary to raise or lower the truckbed");
         } else if (degrees < 0 || degrees > 70){
             throw new IllegalArgumentException("Invalid integer. Must be within the limits 0-70");
-        } else if (TruckBedAngle + degrees <= 0) {
-            TruckBedAngle = 0;
+        } else if (CargoTruck.getAngle() + degrees <= 0) {
+            CargoTruck.setAngle(0);
         } else {
-            TruckBedAngle -= degrees;
+            CargoTruck.setAngle(degrees);
         }
+    }
+
+    @Override
+    public void move() {
+        if (CargoTruck.getAngle() == 0)
+        switch (direction) {
+            case "North":
+                y += this.getCurrentSpeed();
+                break;
+            case "East":
+                x += this.getCurrentSpeed();
+                break;
+            case "South":
+                y -= this.getCurrentSpeed();
+                break;
+            case "West":
+                x -= this.getCurrentSpeed();
+                break;
+        }
+
     }
 
     @Override
