@@ -36,20 +36,8 @@ public class ScaniaTruck extends Vehicle {
 
     @Override
     public void move() {
-        if (CargoTruck.getAngle() == 0)
-        switch (direction) {
-            case "North":
-                y += this.getCurrentSpeed();
-                break;
-            case "East":
-                x += this.getCurrentSpeed();
-                break;
-            case "South":
-                y -= this.getCurrentSpeed();
-                break;
-            case "West":
-                x -= this.getCurrentSpeed();
-                break;
+        if (CargoTruck.getAngle() == 0) {
+        super.move();
         }
 
     }
