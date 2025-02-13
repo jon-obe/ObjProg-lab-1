@@ -19,14 +19,6 @@ public class Carstest {
         assertEquals("East", s.getDirection());
     }
 
-    //@Test
-    //public void testGas() {
-    //    Volvo240 v = new Volvo240();
-    //    v.startEngine();
-    //    assertThrows(IllegalAccessException.class, () -> v.gas(2));
-    //    assertNotEquals(2.1 ,v.getCurrentSpeed());
-    //}
-
     @Test
     public void testRTBcorrect() {
         ScaniaTruck s = new ScaniaTruck();
@@ -88,8 +80,7 @@ public class Carstest {
 
     @Test
     public void testMoveCargo() {
-        CarTransport b = new CarTransport(6);
-        Volvo240 v = new Volvo240();
+        CarTransport b = new CarTransport(6);Volvo240 v = new Volvo240();
         b.loadCar(v);
         b.startEngine();
         b.turnRight();
